@@ -1,9 +1,10 @@
 import React from "react";
 import Backarrow from "../svgs/Backarrow";
+import Card from "./Card";
 
 const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
   return (
-    <section className="py-4 px-4 ">
+    <section className="py-4 px-4 flex flex-col gap-10">
       <header className="flex border shadow-2xl">
         <button
           className="hover:cursor-pointer"
@@ -16,6 +17,10 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
           {selectedLevel}
         </h1>
       </header>
+
+      <div className="">
+        <Card />
+      </div>
     </section>
   );
 };
