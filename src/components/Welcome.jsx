@@ -1,29 +1,23 @@
 import React, { useState } from "react";
 
-const Welcome = () => {
+const Welcome = ({ setSelectedLevel, setBackButtonClicked }) => {
   // State to track the selected value (controlled input)
-  const [selectedLevel, setSelectedLevel] = useState("");
-  const [error, setError] = useState("");
+  const [localSelectedLevel, setLocalSelectedLevel] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Handle change event for radio buttons
   const handleLevelChange = (event) => {
-    setSelectedLevel(event.target.value);
-    // Clear error when user selects an option
-    if (error) setError("");
+    setLocalSelectedLevel(event.target.value);
   };
 
   // Handle form submission
   const handleSubmit = () => {
-    if (!selectedLevel) {
-      setError("Please select an HSK level to continue");
+    if (!localSelectedLevel) {
       return;
     }
-    // Clear error and proceed
-    setError("");
     setIsSubmitted(true);
-    // Here you can add your navigation or next step logic
-    console.log("Selected Level:", selectedLevel);
+    setBackButtonClicked(false);
+    setSelectedLevel(localSelectedLevel);
   };
 
   // Options for the radio buttons
@@ -41,7 +35,7 @@ const Welcome = () => {
           <span className="font-semibold text-2xl sm:text-3xl lg:text-4xl block text-zeilight text-shadow-lg">
             你好
           </span>
-          <span className="block font-inter text-lg sm:text-xl lg:text-2xl font-semibold my-2 sm:my-4 text-shadow-lg">
+          <span className="block font-inter text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold my-2 sm:my-4 text-shadow-lg">
             Welcome to ZeiHanz Application
           </span>
         </h1>
@@ -65,7 +59,7 @@ const Welcome = () => {
                 flex items-center px-3 sm:px-4 py-2 sm:py-3 rounded-lg border-2 cursor-pointer
                 transition-all duration-200 ease-in-out
                 ${
-                  selectedLevel === option.value
+                  localSelectedLevel === option.value
                     ? "border-zeilight bg-blue-50 shadow-md"
                     : "border-gray-200 hover:border-zeiverylight hover:bg-gray-50"
                 }
@@ -75,7 +69,7 @@ const Welcome = () => {
                 type="radio"
                 name="hskLevel"
                 value={option.value}
-                checked={selectedLevel === option.value}
+                checked={localSelectedLevel === option.value}
                 onChange={handleLevelChange}
                 className="w-3 h-3 sm:w-4 sm:h-4 text-zeilight cursor-pointer accent-zeilight"
               />
@@ -86,28 +80,6 @@ const Welcome = () => {
           ))}
         </div>
 
-        {/* Error Message */}
-        {error && (
-          <div className="mt-4 p-3 bg-red-50 border border-red-300 rounded-lg animate-pulse">
-            <p className="text-red-600 text-sm flex items-center gap-2">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              {error}
-            </p>
-          </div>
-        )}
-
         {/* Submit Button */}
         <button
           onClick={handleSubmit}
@@ -115,15 +87,15 @@ const Welcome = () => {
             w-full mt-4 sm:mt-6 py-2.5 sm:py-3 px-4 rounded-lg font-semibold text-white text-sm sm:text-base
             transition-all duration-200 ease-in-out
             ${
-              selectedLevel
+              localSelectedLevel
                 ? "bg-zeilight hover:bg-zeidark transform hover:scale-[1.02] shadow-md"
                 : "bg-gray-400 cursor-not-allowed opacity-60"
             }
           `}
-          disabled={!selectedLevel && !isSubmitted}
+          disabled={!localSelectedLevel && !isSubmitted}
         >
-          {selectedLevel
-            ? `Start Learning ${selectedLevel}`
+          {localSelectedLevel
+            ? `Start Learning ${localSelectedLevel}`
             : "Select a Level to Begin"}
         </button>
       </div>
