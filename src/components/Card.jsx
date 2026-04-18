@@ -23,7 +23,7 @@ const Card = () => {
             <span className="text-orange-600 mx-1">of</span>
             <span className="text-zeilight">300</span>
           </div>
-          <h4 className="text-6xl sm:text-7xl lg:text-8xl font-kaiti font-bold text-zeidark text-center">
+          <h4 className="text-6xl sm:text-6xl lg:text-7xl font-kaiti font-bold text-zeidark text-center">
             公共汽车
           </h4>
           {showPinyin && (
@@ -33,16 +33,18 @@ const Card = () => {
           )}
         </div>
         {showMeaning && (
-          <div className="meaning mt-1 lg:mt-6 ">
+          <div className="meaning mt-1 lg:mt-6 px-3">
             <p className="font-xl text-center tracking-wide">
-              <span className="text-sm italic mr-1">pron.</span>
+              <span className="text-sm italic mr-1 lg:text-base">pron.</span>
               <span className="text-zeilight text-base md:text-xl lg:text-2xl">
                 I/Me
               </span>
             </p>
-            <p className="px-2 sm:px-4 lg:px-8">
-              <span className="mx-4 text-sm block text-gray-600">Example:</span>
-              <span className="font-kaiti text-2xl block text-zeidark lg:text-3xl">
+            <p className="sm:px-4 lg:px-8">
+              <span className="mx-4 mb- text-sm md:text-base lg:text-lg block text-gray-600 ">
+                Example:
+              </span>
+              <span className="font-kaiti text-2xl block text-zeidark lg:text-3xl xl:text-4xl mt-2 lg:mt-4 ">
                 {charactersToBeHighlighted(str, "我").map(
                   ([char, isHighlighted], index) => (
                     <span
@@ -54,6 +56,9 @@ const Card = () => {
                   ),
                 )}
               </span>
+            </p>
+            <p className="font-lato font-semibold mt-4 text-gray-700 tracking-wide text-center lg:text-lg">
+              I take the bus to school every day from Monday to Friday.
             </p>
           </div>
         )}

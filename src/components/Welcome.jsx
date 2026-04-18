@@ -28,7 +28,7 @@ const Welcome = ({ setSelectedLevel, setBackButtonClicked }) => {
   ];
 
   return (
-    <section className="min-h-screen w-full bg-slate-100 px-4 sm:px-6 lg:px-8 py-5 flex flex-col gap-4">
+    <section className="min-h-screen w-full bg-slate-100 px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-4">
       {/* Header Section */}
       <div className="font-munito text-center py-4 sm:py-6 lg:py-8">
         <h1 className="space-y-2 sm:space-y-3">
@@ -45,7 +45,7 @@ const Welcome = ({ setSelectedLevel, setBackButtonClicked }) => {
       </div>
 
       {/* Main Card */}
-      <div className="mt-4 sm:mt-6 lg:mt-8 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-6 sm:pb-8 rounded-2xl shadow-2xl bg-white max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto">
+      <div className="mt-4 sm:mt-6  px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-6 sm:pb-8 rounded-2xl shadow-2xl bg-white max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto">
         <h3 className="text-zeidark text-center text-base sm:text-lg lg:text-xl font-semibold">
           Please select your HSK level to begin
         </h3>

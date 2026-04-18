@@ -10,7 +10,7 @@ const charactersToBeHighlighted = (text, character) => {
       textPairs.push([charText, false]);
       break;
     }
-    textPairs.push([charText.slice(0, i), false]);
+    if (i > 0) textPairs.push([charText.slice(0, i), false]);
     textPairs.push([character, true]);
     charText = charText.slice(i + character.length);
   }
