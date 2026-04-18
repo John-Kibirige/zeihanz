@@ -5,7 +5,7 @@ import Card from "./Card";
 const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
   return (
     <section className="py-4 px-4 flex flex-col gap-10 bg-slate-100 w-screen h-screen">
-      <header className="flex border shadow-2xl">
+      <header className="flex shadow-2xl px-4 py-2 rounded-md">
         <button
           className="hover:cursor-pointer"
           onClick={() => setBackButtonClicked(true)}
@@ -13,7 +13,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
           <Backarrow />
         </button>
 
-        <h1 className="text-xl text-zeidark text-center w-full border">
+        <h1 className="text-xl text-zeidark text-center w-full ">
           {selectedLevel}
         </h1>
       </header>
