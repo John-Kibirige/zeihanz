@@ -11,9 +11,9 @@ const ChevronFront = () => {
       <path
         d="M6 17L11 12L6 7M13 17L18 12L13 7"
         className="stroke-orange-600"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
