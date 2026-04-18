@@ -4,7 +4,7 @@ import Card from "./Card";
 
 const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
   return (
-    <section className="py-4 px-4 flex flex-col gap-10">
+    <section className="py-4 px-4 flex flex-col gap-10 bg-slate-100 w-screen h-screen">
       <header className="flex border shadow-2xl">
         <button
           className="hover:cursor-pointer"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { charactersToBeHighlighted } from "../scripts/cardrelated";
 
-const Card = () => {
+const Card = ({ cardNumber, totalCards }) => {
   const [showPinyin, setShowPinyin] = useState(false);
   const [showMeaning, setShowMeaning] = useState(false);
 
@@ -10,14 +11,20 @@ const Card = () => {
   const handleMeaning = () => {
     setShowMeaning((currentState) => !currentState);
   };
-  const str = "我说中文。这是我的猫";
+  const str = "我每天从星期一就到星期五坐公共汽车去学校";
+  const str2 = "我明天和你一起去歌厅唱歌吧？";
 
   return (
-    <div className=" border">
-      <div className="border py-2">
+    <div className=" border bg-white rounded-md shadow-lg px-4">
+      <div className="border py-4">
         <div className="border">
-          <h4 className="text-8xl font-kaiti font-bold text-zeidark text-center">
-            我
+          <div className=" w-fit h-fit border text-center px-2 mb-4 rounded-sm text-sm py-[1px] shadow-2xl border-2 border-orange-600 ">
+            <span className="text-zeilight">2</span>
+            <span className=" text-orange-600 mx-1">of</span>
+            <span className="text-zeilight ">300</span>
+          </div>
+          <h4 className="text-6xl font-kaiti font-bold text-zeidark text-center">
+            公共汽车
           </h4>
           {showPinyin && (
             <h5 className="font-noto tracking-wide font-bold text-2xl text-center text-orange-600">
@@ -36,14 +43,16 @@ const Card = () => {
                 Example:
               </span>
               <span className="font-kaiti text-2xl block text-zeidark">
-                {str.split("").map((character, index) => (
-                  <span
-                    key={index}
-                    className={`${character == "我" && "text-orange-600"}`}
-                  >
-                    {character}
-                  </span>
-                ))}
+                {charactersToBeHighlighted(str, "我").map(
+                  ([char, isHighlighted], index) => (
+                    <span
+                      key={index}
+                      className={`${isHighlighted && "text-orange-600"}`}
+                    >
+                      {char}
+                    </span>
+                  ),
+                )}
               </span>
             </p>
           </div>
