@@ -4,11 +4,21 @@ import Card from "./Card";
 import ChevronBack from "../svgs/ChevronBack";
 import ChevronFront from "../svgs/ChevronFront";
 import { HskOneCharacters } from "../data/hskOne";
+import { HskTwoCharacters } from "../data/hskTwo";
+import { HskThreeCharacters } from "../data/hskThree";
+
 import RandomSVG from "../svgs/RandomSVG";
 
 const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
   const [cardPosition, setCardPosition] = useState(0);
-  const numberOfCards = HskOneCharacters.length;
+
+  const data =
+    selectedLevel == "HSK 1"
+      ? HskOneCharacters
+      : selectedLevel == "HSK 2"
+        ? HskTwoCharacters
+        : HskThreeCharacters;
+  const numberOfCards = data.length;
   const {
     name,
     pinyin,
@@ -17,7 +27,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
     example,
     examplePinyin,
     translation,
-  } = HskOneCharacters[cardPosition];
+  } = data[cardPosition];
 
   const handleNext = () => {
     setCardPosition((state) => {
