@@ -6,7 +6,7 @@ function App() {
   const [backButtonClicked, setBackButtonClicked] = useState(false);
 
   return (
-    <>
+    <section className="bg-slate-100 w-screen h-screen">
       {!selectedLevel || backButtonClicked ? (
         <Welcome
           setSelectedLevel={setSelectedLevel}
@@ -18,7 +18,7 @@ function App() {
           setBackButtonClicked={setBackButtonClicked}
         />
       )}
-    </>
+    </section>
   );
 }
 

@@ -1,19 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import Backarrow from "../svgs/Backarrow";
 import Card from "./Card";
 import ChevronBack from "../svgs/ChevronBack";
 import ChevronFront from "../svgs/ChevronFront";
+import { HskOneCharacters } from "../data/hskOne";
+import RandomSVG from "../svgs/RandomSVG";
 
 const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
+  const [cardPosition, setCardPosition] = useState(0);
+  const numberOfCards = HskOneCharacters.length;
+  const {
+    name,
+    pinyin,
+    partOfSpeech,
+    meaning,
+    example,
+    examplePinyin,
+    translation,
+  } = HskOneCharacters[cardPosition];
+
+  const handleNext = () => {
+    setCardPosition((state) => {
+      return state == numberOfCards - 1 ? state : state + 1;
+    });
+  };
+
+  const handlePrevious = () => {
+    setCardPosition((state) => {
+      return state == 0 ? state : state - 1;
+    });
+  };
+
+  const handleRandom = () => {
+    setCardPosition(Math.floor(Math.random() * numberOfCards));
+  };
+
   return (
-    <section className="py-4 px-4 flex flex-col gap-10 bg-slate-100 w-screen h-screen">
+    <section className="py-4 px-4 flex flex-col gap-10 ">
       <header className="flex shadow-2xl px-4 py-2 rounded-md">
         <button
           className="hover:cursor-pointer flex gap-4 items-center  px-4 py-1 lg:py-2 border-2 border-zeilight active:scale-95"
           onClick={() => setBackButtonClicked(true)}
         >
           <Backarrow />
-          <span className="block text-zeilight ">Back</span>
+          <span className="text-zeilight hidden sm:block ">Back</span>
         </button>
 
         <h1 className="text-xl lg:text-2xl text-zeidark text-center w-full font-semibold">
@@ -22,17 +52,43 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
       </header>
 
       <div className="">
-        <Card />
+        <Card
+          cardPosition={cardPosition}
+          numberOfCards={numberOfCards}
+          name={name}
+          pinyin={pinyin}
+          partOfSpeech={partOfSpeech}
+          meaning={meaning}
+          example={example}
+          examplePinyin={examplePinyin}
+          translation={translation}
+        />
       </div>
       {/* create the next and previous button */}
-      <div className=" flex justify-between lg:w-2/3 xl:w-1/2 mx-auto">
-        <button className=" bg-orange-600 px-4 py-2 rounded-md flex gap-2 items-center active:scale-95 lg:text-lg shadow-md">
+      <div className=" flex justify-between  w-full lg:w-2/3 xl:w-1/2 lg:mx-auto">
+        <button
+          className=" bg-orange-600 px-4 py-2 rounded-md flex gap-2 items-center active:scale-95 lg:text-lg shadow-md"
+          onClick={handlePrevious}
+        >
           <ChevronBack />
-          <span className="block text-white">Previous</span>
+          <span className="hidden sm:block text-white">Previous</span>
         </button>
 
-        <button className=" border-2 border-orange-600  px-4 py-2 rounded-md flex gap-4 items-center active:scale-95 shadow-md">
-          <span className="block text-orange-600 lg:text-lg">Next</span>{" "}
+        <button
+          className=" bg-zeidark px-4 py-2 rounded-md flex gap-2 items-center active:scale-95 lg:text-lg shadow-md"
+          onClick={handleRandom}
+        >
+          <RandomSVG />
+          <span className="hidden sm:block text-white">Random</span>
+        </button>
+
+        <button
+          className=" border-2 border-orange-600  px-4 py-2 rounded-md flex gap-4 items-center active:scale-95 shadow-md"
+          onClick={handleNext}
+        >
+          <span className=" hidden sm:block text-orange-600 lg:text-lg">
+            Next
+          </span>{" "}
           <ChevronFront />
         </button>
       </div>

@@ -28,7 +28,7 @@ const Welcome = ({ setSelectedLevel, setBackButtonClicked }) => {
   ];
 
   return (
-    <section className="min-h-screen w-full bg-slate-100 px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-4">
+    <section className="min-h-screen w-full  px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-4">
       {/* Header Section */}
       <div className="font-munito text-center py-4 sm:py-6 lg:py-8">
         <h1 className="space-y-2 sm:space-y-3">

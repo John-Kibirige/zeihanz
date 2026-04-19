@@ -1,4 +1,7 @@
 const charactersToBeHighlighted = (text, character) => {
+  text = text.toLowerCase();
+  character = character.toLowerCase();
+
   if (text.length == 0 || text.indexOf(character) == -1) {
     return [[text, false]];
   }
