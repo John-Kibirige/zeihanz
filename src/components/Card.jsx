@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { charactersToBeHighlighted } from "../scripts/cardrelated";
 
 const Card = ({
@@ -35,41 +34,31 @@ const Card = ({
           <h4 className="text-6xl sm:text-6xl lg:text-7xl xl:text-8xl font-kaiti font-bold text-zeidark text-center">
             {name}
           </h4>
-          {showPinyin && (
-            <h5 className="font-noto tracking-wide font-bold text-2xl text-center text-orange-600 lg:text-3xl lg:mt-2">
-              {pinyin}
-            </h5>
-          )}
+
+          <h5
+            className={`font-noto tracking-wide font-bold text-2xl text-center text-orange-600 lg:text-3xl lg:mt-2  overflow-hidden ${showPinyin ? " animate-grow-down" : "animate-grow-up"}`}
+          >
+            {pinyin}
+          </h5>
         </div>
-        {showMeaning && (
-          <div className="meaning mt-1 lg:mt-6 px-3">
-            <p className="font-xl text-center tracking-wide">
-              <span className="text-sm italic mr-1 lg:text-base">
-                {partOfSpeech}.
-              </span>
-              <span className="text-zeilight text-base md:text-xl lg:text-2xl">
-                {meaning}
-              </span>
-            </p>
-            <p className="sm:px-4 lg:px-8">
-              <span className="mx-4 mb- text-sm md:text-base lg:text-lg block text-gray-600 ">
-                Example:
-              </span>
-              <span className="font-kaiti text-2xl block text-zeidark lg:text-3xl xl:text-4xl mt-2 lg:mt-4 ">
-                {charactersToBeHighlighted(example, name).map(
-                  ([char, isHighlighted], index) => (
-                    <span
-                      key={index}
-                      className={`${isHighlighted && "text-orange-600"}`}
-                    >
-                      {char}
-                    </span>
-                  ),
-                )}
-              </span>
-            </p>
-            <p className="text-center tracking-wide">
-              {charactersToBeHighlighted(examplePinyin, pinyin).map(
+
+        <div
+          className={`meaning mt-1 lg:mt-6 px-3 animate-grow-down overflow-hidden ${showMeaning ? "animate-grow-down" : "animate-grow-up"}`}
+        >
+          <p className="font-xl text-center tracking-wide">
+            <span className="text-sm italic mr-1 lg:text-base">
+              {partOfSpeech}.
+            </span>
+            <span className="text-zeilight text-base md:text-xl lg:text-2xl">
+              {meaning}
+            </span>
+          </p>
+          <p className="sm:px-4 lg:px-8">
+            <span className="mx-4 mb- text-sm md:text-base lg:text-lg block text-gray-600 ">
+              Example:
+            </span>
+            <span className="font-kaiti text-2xl block text-zeidark lg:text-3xl xl:text-4xl mt-2 lg:mt-4 ">
+              {charactersToBeHighlighted(example, name).map(
                 ([char, isHighlighted], index) => (
                   <span
                     key={index}
@@ -79,12 +68,24 @@ const Card = ({
                   </span>
                 ),
               )}
-            </p>
-            <p className="font-lato font-semibold mt-4 text-gray-700 tracking-wide text-center lg:text-lg">
-              {translation}
-            </p>
-          </div>
-        )}
+            </span>
+          </p>
+          <p className="text-center tracking-wide lg:text-lg xl:text-xl my-2 sm:my-3 lg:my-4 xl:my-5">
+            {charactersToBeHighlighted(examplePinyin, pinyin).map(
+              ([char, isHighlighted], index) => (
+                <span
+                  key={index}
+                  className={`${isHighlighted && "text-orange-600"}`}
+                >
+                  {char}
+                </span>
+              ),
+            )}
+          </p>
+          <p className="font-poppins font-semibold mt-4 text-cyan-800 tracking-wide text-center lg:text-lg xl:text-xl">
+            {translation}
+          </p>
+        </div>
       </div>
 
       {/* Buttons Section - Right on desktop */}

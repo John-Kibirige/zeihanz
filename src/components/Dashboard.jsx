@@ -56,7 +56,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
   };
 
   return (
-    <section className="py-4 px-4 flex flex-col gap-10 ">
+    <section className="py-4 px-4 flex flex-col gap-10 pb-10 ">
       <header className="flex shadow-2xl px-4 py-2 rounded-md">
         <button
           className="hover:cursor-pointer flex gap-4 items-center  px-4 py-1 lg:py-2 border-2 border-zeilight active:scale-95"
