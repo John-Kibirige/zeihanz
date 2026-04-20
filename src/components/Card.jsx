@@ -11,10 +11,11 @@ const Card = ({
   example,
   examplePinyin,
   translation,
+  showPinyin,
+  showMeaning,
+  setShowPinyin,
+  setShowMeaning,
 }) => {
-  const [showPinyin, setShowPinyin] = useState(false);
-  const [showMeaning, setShowMeaning] = useState(false);
-
   const handlePinyin = () => {
     setShowPinyin((currentState) => !currentState);
   };

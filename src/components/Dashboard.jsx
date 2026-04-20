@@ -11,6 +11,13 @@ import RandomSVG from "../svgs/RandomSVG";
 
 const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
   const [cardPosition, setCardPosition] = useState(0);
+  const [showPinyin, setShowPinyin] = useState(false);
+  const [showMeaning, setShowMeaning] = useState(false);
+
+  const resetCardState = () => {
+    setShowPinyin(false);
+    setShowMeaning(false);
+  };
 
   const data =
     selectedLevel == "HSK 1"
@@ -33,16 +40,19 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
     setCardPosition((state) => {
       return state == numberOfCards - 1 ? state : state + 1;
     });
+    resetCardState();
   };
 
   const handlePrevious = () => {
     setCardPosition((state) => {
       return state == 0 ? state : state - 1;
     });
+    resetCardState();
   };
 
   const handleRandom = () => {
     setCardPosition(Math.floor(Math.random() * numberOfCards));
+    resetCardState();
   };
 
   return (
@@ -72,6 +82,10 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
           example={example}
           examplePinyin={examplePinyin}
           translation={translation}
+          showPinyin={showPinyin}
+          showMeaning={showMeaning}
+          setShowPinyin={setShowPinyin}
+          setShowMeaning={setShowMeaning}
         />
       </div>
       {/* create the next and previous button */}
@@ -89,7 +103,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
           onClick={handleRandom}
         >
           <RandomSVG />
-          <span className="hidden sm:block text-white">Random</span>
+          <span className="hidden sm:block text-white">Shuffle</span>
         </button>
 
         <button
