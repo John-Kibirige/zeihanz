@@ -1,4 +1,4 @@
-export const HskOneCharacters = [
+const HskOneCharacters = [
   {
     name: "爱",
     pinyin: "ài",
@@ -1384,3 +1384,5 @@ export const HskOneCharacters = [
       "I need to do homework tonight and then review what I learned today.",
   },
 ];
+
+export { HskOneCharacters };

@@ -36,14 +36,14 @@ const Card = ({
           </h4>
 
           <h5
-            className={`font-noto tracking-wide font-bold text-2xl text-center text-orange-600 lg:text-3xl lg:mt-2  overflow-hidden ${showPinyin ? " animate-grow-down" : "animate-grow-up"}`}
+            className={`font-noto tracking-wide font-bold text-2xl text-center text-orange-600 lg:text-3xl lg:mt-2 overflow-hidden transition-all duration-500 ease-in-out ${showPinyin ? "max-h-20 opacity-100 mt-2" : "max-h-0 opacity-0"} `}
           >
             {pinyin}
           </h5>
         </div>
 
         <div
-          className={`meaning mt-1 lg:mt-6 px-3 animate-grow-down overflow-hidden ${showMeaning ? "animate-grow-down" : "animate-grow-up"}`}
+          className={`meaning mt-1 lg:mt-6 px-3 overflow-hidden transition-all duration-500 ease-in-out ${showMeaning ? "max-h-[500px] opacity-100 mt-4" : "max-h-0 opacity-0"} `}
         >
           <p className="font-xl text-center tracking-wide">
             <span className="text-sm italic mr-1 lg:text-base">
@@ -57,7 +57,7 @@ const Card = ({
             <span className="mx-4 mb- text-sm md:text-base lg:text-lg block text-gray-600 ">
               Example:
             </span>
-            <span className="font-kaiti text-2xl block text-zeidark lg:text-3xl xl:text-4xl mt-2 lg:mt-4 ">
+            <span className="font-kaiti text-2xl block text-zeidark lg:text-3xl xl:text-4xl mt-2 lg:mt-4 text-center">
               {charactersToBeHighlighted(example, name).map(
                 ([char, isHighlighted], index) => (
                   <span

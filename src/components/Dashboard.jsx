@@ -73,6 +73,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
 
       <div className="">
         <Card
+          key={cardPosition}
           cardPosition={cardPosition}
           numberOfCards={numberOfCards}
           name={name}
@@ -89,9 +90,9 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
         />
       </div>
       {/* create the next and previous button */}
-      <div className=" flex justify-between  w-full lg:w-2/3 xl:w-1/2 lg:mx-auto">
+      <div className=" flex justify-between sm:justify-around lg:justify-between w-full lg:w-2/3 xl:w-1/2 lg:mx-auto">
         <button
-          className=" bg-orange-600 px-4 py-2 rounded-md flex gap-2 items-center active:scale-95 lg:text-lg shadow-md"
+          className=" bg-orange-600 px-4 py-2 rounded-md flex gap-2 items-center active:scale-95 lg:text-lg shadow-md cursor-pointer"
           onClick={handlePrevious}
         >
           <ChevronBack />
@@ -99,7 +100,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
         </button>
 
         <button
-          className=" bg-zeidark px-4 py-2 rounded-md flex gap-2 items-center active:scale-95 lg:text-lg shadow-md"
+          className=" bg-zeidark px-4 py-2 rounded-md flex gap-2 items-center active:scale-95 lg:text-lg shadow-md cursor-pointer"
           onClick={handleRandom}
         >
           <RandomSVG />
@@ -107,7 +108,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
         </button>
 
         <button
-          className=" border-2 border-orange-600  px-4 py-2 rounded-md flex gap-4 items-center active:scale-95 shadow-md"
+          className=" border-2 border-orange-600  px-4 py-2 rounded-md flex gap-4 items-center active:scale-95 shadow-md cursor-pointer"
           onClick={handleNext}
         >
           <span className=" hidden sm:block text-orange-600 lg:text-lg">
