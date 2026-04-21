@@ -378,7 +378,7 @@ const hskOneCompoundWords = () => [
   },
 ];
 
-const hskOneNewVocabulary = () => [
+const hskOneAdditionalVocabulary = () => [
   {
     name: "茶杯",
     pinyin: "chábēi",
@@ -602,5 +602,5 @@ export {
   hskOneProperNouns,
   hskOneWordsNotIncluded,
   hskOneCompoundWords,
-  hskOneNewVocabulary,
+  hskOneAdditionalVocabulary,
 };

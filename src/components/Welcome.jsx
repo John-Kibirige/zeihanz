@@ -22,9 +22,9 @@ const Welcome = ({ setSelectedLevel, setBackButtonClicked }) => {
 
   // Options for the radio buttons
   const hskOptions = [
-    { id: "hsk1", value: "HSK 1", label: "HSK 1" },
-    { id: "hsk2", value: "HSK 2", label: "HSK 2" },
-    { id: "hsk3", value: "HSK 3", label: "HSK 3" },
+    { id: "hsk1", value: "hskOne", label: "HSK 1" },
+    { id: "hsk2", value: "hskTwo", label: "HSK 2" },
+    { id: "hsk3", value: "hskThree", label: "HSK 3" },
   ];
 
   return (
