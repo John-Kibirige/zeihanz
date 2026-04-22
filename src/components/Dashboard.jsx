@@ -25,8 +25,8 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
     setShowMeaning(false);
   };
 
-  const dataBasedOnLevel = characterDatabase[selectedLevel];
-  const data = dataBasedOnLevel[activeCategory];
+  const dataBasedOnLevel = characterDatabase[selectedLevel] || {};
+  const data = dataBasedOnLevel[activeCategory] || [];
 
   const numberOfCards = data.length;
   const {
@@ -65,6 +65,8 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
+    setShowMenu(false);
+    resetCardState();
   };
 
   const categories = [
@@ -75,9 +77,15 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
     { id: "extra", label: "Extra" },
   ];
 
+  const headerNames = {
+    hskOne: "HSK 1",
+    hskTwo: "HSK 2",
+    hskThree: "HSK 3",
+  };
+
   return (
     <section className="py-4 px-4 flex flex-col gap-10 pb-10 ">
-      <header className="flex shadow-lg px-4 py-2 rounded-md items-center relative border-2 border-red-600">
+      <header className="flex justify-between shadow-lg px-4 py-2 rounded-md items-center relative z-50 bg-white">
         <button
           className="hover:cursor-pointer flex gap-4 items-center  px-4 py-1 lg:py-2 border-2 border-zeilight active:scale-95"
           onClick={() => setBackButtonClicked(true)}
@@ -87,12 +95,12 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
         </button>
 
         <h1 className="text-xl lg:text-2xl text-zeidark text-center w-full font-semibold">
-          {selectedLevel}
+          {headerNames[selectedLevel]}
         </h1>
         {/* navigation mobile*/}
-        <div className="">
+        <div className="flex justify-center">
           <button
-            className="cursor-pointer active:scale-95"
+            className="cursor-pointer active:scale-95 w-8"
             onClick={handleShowMenu}
           >
             {!showMenu ? <Humberger /> : <Close />}
@@ -100,7 +108,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
         </div>
 
         {showMenu && (
-          <nav className="border absolute top-full mt-2 w-full left-0 right-0 h-fit px-5 py-4 flex flex-col gap-2 font-nunito tracking-wide rounded-md shadow-md">
+          <nav className="border absolute top-full mt-4 w-full left-0 right-0 h-fit px-5 py-4 flex flex-col gap-2 font-nunito tracking-wide rounded-md shadow-md z-50 bg-white">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -117,8 +125,15 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
           </nav>
         )}
       </header>
-      <div className="    PLEASE REMOVE ME REMOVE ME REMOVE ME..........................................">
-        <div className="">
+      {/* overlay for mobile */}
+      {showMenu && (
+        <div
+          onClick={() => setShowMenu(false)}
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+        />
+      )}
+      <div className="   PLEASE REMOVE ME REMOVE ME REMOVE ME..........................................">
+        <div className="select-text">
           <Card
             key={cardPosition}
             cardPosition={cardPosition}
@@ -137,7 +152,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
           />
         </div>
         {/* create the next and previous button */}
-        <div className=" flex justify-between sm:justify-around lg:justify-between w-full lg:w-2/3 xl:w-1/2 lg:mx-auto">
+        <div className=" flex justify-between sm:justify-around lg:justify-between w-full lg:w-2/3 xl:w-1/2 lg:mx-auto mt-6 lg:mt-7 xl:mt-8 ">
           <button
             className=" bg-orange-600 px-4 py-2 rounded-md flex gap-2 items-center active:scale-95 lg:text-lg shadow-md cursor-pointer"
             onClick={handlePrevious}

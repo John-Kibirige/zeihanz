@@ -43,7 +43,7 @@ const Card = ({
         </div>
 
         <div
-          className={`meaning mt-1 lg:mt-6 px-3 overflow-hidden transition-all duration-500 ease-in-out ${showMeaning ? "max-h-[500px] opacity-100 mt-4" : "max-h-0 opacity-0"} `}
+          className={`meaning mt-1 lg:mt-6 px-3 overflow-hidden transition-all duration-500 ease-in-out ${showMeaning ? "max-h-[1000px] opacity-100 mt-4" : "max-h-0 opacity-0"} `}
         >
           <p className="font-xl text-center tracking-wide">
             <span className="text-sm italic mr-1 lg:text-base">
@@ -82,7 +82,7 @@ const Card = ({
               ),
             )}
           </p>
-          <p className="font-poppins font-semibold mt-4 text-cyan-800 tracking-wide text-center lg:text-lg xl:text-xl">
+          <p className=" font-poppins font-semibold mt-4 text-cyan-800 tracking-wide text-center lg:text-lg xl:text-xl">
             {translation}
           </p>
         </div>
