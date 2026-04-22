@@ -67,6 +67,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
     setActiveCategory(category);
     setShowMenu(false);
     resetCardState();
+    setCardPosition(0);
   };
 
   const categories = [
@@ -85,7 +86,7 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
 
   return (
     <section className="py-4 px-4 flex flex-col gap-10 pb-10 ">
-      <header className="flex justify-between shadow-lg px-4 py-2 rounded-md items-center relative z-50 bg-white">
+      <header className="flex justify-between lg:justify-baseline shadow-lg px-4 py-2 rounded-md items-center relative z-50 bg-white">
         <button
           className="hover:cursor-pointer flex gap-4 items-center  px-4 py-1 lg:py-2 border-2 border-zeilight active:scale-95"
           onClick={() => setBackButtonClicked(true)}
@@ -94,11 +95,11 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
           <span className="text-zeilight hidden sm:block ">Back</span>
         </button>
 
-        <h1 className="text-xl lg:text-2xl text-zeidark text-center w-full font-semibold">
+        <h1 className="text-xl lg:text-2xl text-zeidark text-center w-full lg:w-fit font-semibold">
           {headerNames[selectedLevel]}
         </h1>
         {/* navigation mobile*/}
-        <div className="flex justify-center">
+        <div className="flex justify-center lg:hidden">
           <button
             className="cursor-pointer active:scale-95 w-8"
             onClick={handleShowMenu}
@@ -106,9 +107,9 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
             {!showMenu ? <Humberger /> : <Close />}
           </button>
         </div>
-
+        {/* mobile */}
         {showMenu && (
-          <nav className="border absolute top-full mt-4 w-full left-0 right-0 h-fit px-5 py-4 flex flex-col gap-2 font-nunito tracking-wide rounded-md shadow-md z-50 bg-white">
+          <nav className="lg:hidden absolute top-full mt-4 w-full left-0 right-0 h-fit px-5 py-4 flex flex-col gap-2 font-nunito tracking-wide rounded-md shadow-md z-50 bg-white">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -124,12 +125,28 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
             ))}
           </nav>
         )}
+        {/* navigation for desktop */}
+        <nav className="hidden lg:grid grid-cols-5 w-fit px-5 py-4  gap-2 font-nunito tracking-wide z-50 bg-white xl:text-lg">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => handleCategoryChange(cat.id)}
+              className={`flex-1 w-full text-center px-3 py-2 rounded-md transition-colors duration-200 cursor-pointer font-medium ${
+                activeCategory === cat.id
+                  ? "bg-orange-600 text-white"
+                  : "text-zeidark hover:bg-orange-200 "
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </nav>
       </header>
       {/* overlay for mobile */}
       {showMenu && (
         <div
           onClick={() => setShowMenu(false)}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+          className="fixed lg:hidden inset-0 bg-black/50 backdrop-blur-sm z-40"
         />
       )}
       <div className="   PLEASE REMOVE ME REMOVE ME REMOVE ME..........................................">
