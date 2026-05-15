@@ -315,7 +315,7 @@ const hskTwoCompoundWords = () => [
   },
 ];
 
-const hskTwoNewVocabulary = () => [
+const hskTwoAdditionalVocabulary = () => [
   {
     name: "白色",
     pinyin: "báisè",
@@ -573,5 +573,5 @@ export {
   hskTwoProperNouns,
   hskTwoWordsNotInSyllabus,
   hskTwoCompoundWords,
-  hskTwoNewVocabulary,
+  hskTwoAdditionalVocabulary,
 };

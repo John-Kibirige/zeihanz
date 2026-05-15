@@ -531,7 +531,6 @@ export const HskTwoCharacters = [
     examplePinyin: "Jīntiān wǒmen shàng dì sān kè.",
     translation: "Today we have Lesson Three.",
   },
-
   {
     name: "快",
     pinyin: "kuài",
@@ -1342,4 +1341,4 @@ export const HskTwoCharacters = [
     examplePinyin: "Xuéxiào zài zuǒbiān.",
     translation: "The school is on the left side.",
   },
-];
+]

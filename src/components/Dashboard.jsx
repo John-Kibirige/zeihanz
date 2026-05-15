@@ -185,14 +185,14 @@ const Dashboard = ({ selectedLevel, setBackButtonClicked }) => {
               >
                 {index + 1}
               </span>
-              <span className="text-xl lg:text-3xl xl:5xl tracking-wide font-medium font-kaiti">
+              <span className="text-2xl sm:text-4l xl:6xl tracking-wide font-medium font-kaiti">
                 {obj.name}
               </span>
             </button>
           ))}
         </div>
       ) : (
-        <div className="   PLEASE REMOVE ME REMOVE ME REMOVE ME..........................................">
+        <div className="">
           <div className="select-text">
             <Card
               key={cardPosition}
