@@ -1,3 +1,7 @@
+import hskOneGrammar from "./grammarhsk1";
+import hskTwoGrammar from "./grammarhsk2";
+import hskThreeGrammar from "./grammarhsk3";
+
 const characterDatabase = {
   hskOne: {
     main: [
@@ -2020,6 +2024,7 @@ const characterDatabase = {
           "She gets up at six every day to cook for the students, although it's very tiring, she says seeing everyone eat happily makes her very happy.",
       },
     ],
+    grammar: hskOneGrammar,
   },
   hskTwo: {
     main: [
@@ -3938,6 +3943,7 @@ const characterDatabase = {
           "This side is the washroom, that side is the kitchen. After you wash your hands you can come over here to drink tea. I just brewed a very good cup of tea.",
       },
     ],
+    grammar: hskTwoGrammar,
   },
   hskThree: {
     main: [
@@ -4867,6 +4873,150 @@ const characterDatabase = {
         translation:
           "During Mid-Autumn Festival, people eat mooncakes and watch the moon.",
       },
+      {
+        name: "周末",
+        pinyin: "",
+        partOfSpeech: "noun",
+        meaning: "Weekend",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
+      {
+        name: "",
+        pinyin: "",
+        partOfSpeech: "",
+        meaning: "",
+        example: "",
+        examplePinyin: "",
+        translation: "",
+      },
     ],
     extra: [
       {
@@ -4930,6 +5080,7 @@ const characterDatabase = {
           "All the situations I mentioned above are my true feelings from living in China for three years. Although I sometimes encountered difficulties, overall this period of life has truly helped me grow a lot.",
       },
     ],
+    grammar: hskThreeGrammar,
   },
 };
 

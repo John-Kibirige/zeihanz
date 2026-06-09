@@ -1526,4 +1526,4 @@ const hskTwoGrammar = [
   },
 ];
 
-export { hskTwoGrammar };
+export default hskTwoGrammar;
